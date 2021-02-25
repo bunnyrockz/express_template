@@ -10,7 +10,7 @@ nodemon command
 nodemon src/index.js -e js,hbs
 */
 
-// Path of  Pages
+// Path to Pages
 const staticpath = path.join(__dirname, "../public");
 const templatepath = path.join(__dirname, "../templates/views");
 const partialpath = path.join(__dirname, "../templates/partials");
@@ -30,6 +30,6 @@ app.get("*", (req, res) => {
 });
 
 //Listening to Port
-app.listen("3000", () => {
+app.listen(port, () => {
   console.log(`Listening to Post ${port}`);
 });
