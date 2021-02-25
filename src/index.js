@@ -10,6 +10,13 @@ nodemon command
 nodemon src/index.js -e js,hbs
 */
 
+/*
+Git => pwd should be express_template
+git add .
+git commit -m "comments"
+git push -u origin master
+*/
+
 // Path to Pages
 const staticpath = path.join(__dirname, "../public");
 const templatepath = path.join(__dirname, "../templates/views");
