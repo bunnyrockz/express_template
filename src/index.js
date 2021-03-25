@@ -3,7 +3,8 @@ const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
 const app = express();
-const port = process.env.PORT || 3000;
+require("./database/mongoose");
+const port = process.env.PORT || 8000;
 
 /*
 type npm install in terminal to download node_modules folder
@@ -16,6 +17,8 @@ git add .
 git commit -m "comments"
 git push -u origin master
 
+
+kill server anytime: kill $(lsof -t -i:port_number)
 */
 
 // Path to Pages
@@ -28,10 +31,12 @@ app.set("views", templatepath);
 hbs.registerPartials(partialpath);
 app.use(express.static(staticpath));
 
-//Get values of Form and save it in | req.body |
-app.use(express.urlencoded());
+//connecting database
 
-//Routing
+//Get values of Form and save it in | req.body | body-parser
+//app.use(express.urlencoded());
+
+//Routing Pages
 app.get("/", (req, res) => {
   res.render("index", { title: "My Express Template" });
 });
